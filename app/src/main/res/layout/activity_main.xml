@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,39 +13,39 @@
         android:orientation="vertical"
         android:weightSum="10"
         app:layout_constraintBaseline_toBaselineOf="parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2">
+            android:layout_weight="2"
+            android:gravity="center">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="------------------"
                 android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
                 android:layout_marginTop="60dp"
-                android:layout_marginEnd="140dp"
-                android:layout_marginRight="130dp"
                 android:gravity="center"
-                android:textSize="25dp"
-                android:layout_alignParentRight="true">
+                android:text="Main Menu"
+                android:textSize="35sp">
 
             </TextView>
         </RelativeLayout>
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="8"
-            android:columnCount="2"
-            android:rowCount="3"
             android:alignmentMode="alignMargins"
+            android:columnCount="2"
             android:columnOrderPreserved="false"
             android:padding="15dp"
-            >
+            android:rowCount="3">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/bucketCard"
-                app:cardBackgroundColor="#ffffff"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -52,9 +53,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                >
+                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -69,8 +70,9 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="bucket"
+                        android:textColor="@color/material_dynamic_neutral80"
                         android:textAlignment="center"
-                        android:textSize="30dp">
+                        android:textSize="30sp">
 
                     </TextView>
 
@@ -79,7 +81,6 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/listCard"
-                app:cardBackgroundColor="#ffffff"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -87,9 +88,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                >
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -105,7 +106,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="list"
                         android:textAlignment="center"
-                        android:textSize="30dp">
+                        android:textSize="30sp">
 
                     </TextView>
 
@@ -114,7 +115,6 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/calendarCard"
-                app:cardBackgroundColor="#ffffff"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -122,9 +122,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                >
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -140,7 +140,7 @@
                         android:layout_gravity="center_horizontal"
                         android:text="calendar"
                         android:textAlignment="center"
-                        android:textSize="30dp">
+                        android:textSize="30sp">
 
                     </TextView>
 
@@ -149,7 +149,6 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/timelineCard"
-                app:cardBackgroundColor="#ffffff"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -157,9 +156,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                >
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -184,7 +183,6 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/notesCard"
-                app:cardBackgroundColor="#ffffff"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_rowWeight="1"
@@ -192,9 +190,9 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="#ffffff"
                 app:cardCornerRadius="8dp"
-                app:cardElevation="8dp"
-                >
+                app:cardElevation="8dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -210,13 +208,46 @@
                         android:layout_gravity="center_horizontal"
                         android:text="notes"
                         android:textAlignment="center"
-                        android:textSize="30dp">
+                        android:textSize="30sp">
 
                     </TextView>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+            <androidx.cardview.widget.CardView
+                android:id="@+id/settingsCard"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="#ffffff"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="8dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/settingsText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="settings"
+                        android:textAlignment="center"
+                        android:textSize="30sp">
+
+                    </TextView>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </GridLayout>
 
