@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId()){
             case R.id.bucketCard:;
             case R.id.listCard:;
-            case R.id.calendarCard:;
+            case R.id.calendarCard: i = new Intent(this, TableCalendar.class);finish();startActivity(i);break;
             case R.id.timelineCard:;
             case R.id.notesCard:;
             case R.id.settingsCard: i = new Intent(this, SettingsPage.class);finish();startActivity(i);break;
