@@ -24,7 +24,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="settings"
-                android:textSize="25dp">
+                android:textSize="25sp">
 
             </TextView>
 
@@ -36,13 +36,13 @@
             android:padding="15dp"
             android:layout_marginTop="20dp">
 
-            <Switch
+            <androidx.appcompat.widget.SwitchCompat
                 android:id="@+id/darkMode_switch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="dark mode">
 
-            </Switch>
+            </androidx.appcompat.widget.SwitchCompat>
 
         </androidx.cardview.widget.CardView>
 
