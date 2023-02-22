@@ -1,53 +1,30 @@
 package com.example.calendar_oy;
 
+import java.util.Date;
+
 public class Events {
-    String EVENT,TIME,DATE,MONTH,YEAR;
+    private String eventName;
+    private Date date;
 
-    public Events(String EVENT, String TIME, String DATE, String MONTH, String YEAR) {
-        this.EVENT = EVENT;
-        this.TIME = TIME;
-        this.DATE = DATE;
-        this.MONTH = MONTH;
-        this.YEAR = YEAR;
+    public Events(String eventName, Date date) {
+        this.eventName = eventName;
+        this.date = date;
     }
 
-    public String getEVENT() {
-        return EVENT;
+    public String getEventName() {
+        return eventName;
     }
 
-    public void setEVENT(String EVENT) {
-        this.EVENT = EVENT;
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
-    public String getTIME() {
-        return TIME;
+    public Date getDate() {
+        return date;
     }
 
-    public void setTIME(String TIME) {
-        this.TIME = TIME;
-    }
-
-    public String getDATE() {
-        return DATE;
-    }
-
-    public void setDATE(String DATE) {
-        this.DATE = DATE;
-    }
-
-    public String getMONTH() {
-        return MONTH;
-    }
-
-    public void setMONTH(String MONTH) {
-        this.MONTH = MONTH;
-    }
-
-    public String getYEAR() {
-        return YEAR;
-    }
-
-    public void setYEAR(String YEAR) {
-        this.YEAR = YEAR;
+    public void setDate(Date date) {
+        this.date = date;
     }
 }
+
