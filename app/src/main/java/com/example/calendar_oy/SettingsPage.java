@@ -1,7 +1,6 @@
 package com.example.calendar_oy;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,36 +10,50 @@ import android.widget.Switch;
 import java.util.Set;
 
 public class SettingsPage extends AppCompatActivity {
-
-    private SharedPref sharedPref;
-    private SwitchCompat nightModeToggle;
+    private Switch darkModeSwitch;
+    public SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         sharedPref = new SharedPref(this);
-        // Set the theme based on saved preference
-        if (sharedPref.loadNightModeState()) {
+        if (sharedPref.loadNightModeState()==true){
             setTheme(R.style.Theme_CalendarOYDark);
-        } else {
+        }
+        else{
             setTheme(R.style.Theme_CalendarOY);
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
 
-        // Find the night mode toggle view in the layout
-        nightModeToggle = findViewById(R.id.darkMode_switch);
-        // Set the initial state of the toggle based on saved preference
-        nightModeToggle.setChecked(sharedPref.loadNightModeState());
+        darkModeSwitch = findViewById(R.id.darkMode_switch);
 
-        // Add the OnCheckedChangeListener to the night mode toggle
-        nightModeToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        if(sharedPref.loadNightModeState() == true){
+            darkModeSwitch.setChecked(true);
+        }
+        darkModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Save the state to shared preference
-                sharedPref.saveNightModeState(isChecked);
-                // Restart the activity to apply the new theme
-                recreate();
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                if(isChecked){
+                    sharedPref.setNightModeState(true);
+                }
+                else{
+                    sharedPref.setNightModeState(false);
+                }
+                restartApp();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+        finish();
+    }
+
+    public void restartApp(){
+        Intent i = new Intent(getApplicationContext(),SettingsPage.class);
+        startActivity(i);
+        finish();
     }
 }

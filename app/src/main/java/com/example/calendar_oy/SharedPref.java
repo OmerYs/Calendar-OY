@@ -4,29 +4,18 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 public class SharedPref {
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-    private final String PREF_NAME = "nightModePref";
-    private final String KEY_NIGHT_MODE = "nightMode";
+    SharedPreferences mySharedPref;
 
-    public SharedPref(Context context) {
-        sharedPreferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE);
-        editor = sharedPreferences.edit();
+    public SharedPref(Context context){
+        mySharedPref = context.getSharedPreferences("filename", Context.MODE_PRIVATE);
     }
-
-    public void setNightModeState(boolean state) {
-        editor.putBoolean(KEY_NIGHT_MODE, state);
-        editor.apply();
-    }
-
-    public boolean loadNightModeState() {
-        return sharedPreferences.getBoolean(KEY_NIGHT_MODE, false);
-    }
-
-    public void saveNightModeState(boolean state) {
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+    public void setNightModeState(Boolean state){
+        SharedPreferences.Editor editor = mySharedPref.edit();
         editor.putBoolean("NightMode", state);
-        editor.apply();
+        editor.commit();
+    }
+    public Boolean loadNightModeState(){
+        Boolean state = mySharedPref.getBoolean("NightMode",false);
+        return state;
     }
 }
-

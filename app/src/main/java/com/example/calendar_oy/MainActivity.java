@@ -8,100 +8,49 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-
-    private final String INTENT_KEY = "page";
-    private final int TABLE_CALENDAR_PAGE = 1;
-    private final int SETTINGS_PAGE = 2;
-
-    private CardView bucketCard;
-    private CardView listCard;
-    private CardView calendarCard;
-    private CardView timelineCard;
-    private CardView notesCard;
-    private CardView settingsCard;
-
-    private SharedPref sharedPref;
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private CardView BucketCard, ListCard, CalendarCard, TimelineCard, NotesCard, SettingCard;
+    public SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         useSharedPreferences();
-
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        View view = getLayoutInflater().inflate(R.layout.activity_main, null);
-        setContentView(view);
-        initViews();
-        registerListeners();
+        BucketCard = (CardView) findViewById(R.id.bucketCard);
+        BucketCard.setOnClickListener((View.OnClickListener)this);
+        ListCard = (CardView) findViewById(R.id.listCard);
+        ListCard.setOnClickListener((View.OnClickListener)this);
+        CalendarCard = (CardView) findViewById(R.id.calendarCard);
+        CalendarCard.setOnClickListener((View.OnClickListener)this);
+        TimelineCard = (CardView) findViewById(R.id.timelineCard);
+        TimelineCard.setOnClickListener((View.OnClickListener)this);
+        NotesCard = (CardView) findViewById(R.id.notesCard);
+        NotesCard.setOnClickListener((View.OnClickListener)this);
+        SettingCard = (CardView) findViewById(R.id.settingsCard);
+        SettingCard.setOnClickListener((View.OnClickListener)this);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        SharedPref sharedPref = new SharedPref(this);
-        if (sharedPref.loadNightModeState()) {
-            setTheme(R.style.Theme_CalendarOYDark);
-        } else {
-            setTheme(R.style.Theme_CalendarOY);
-        }
-        recreate();
-    }
-
-
-    private void initViews() {
-        bucketCard = findViewById(R.id.bucketCard);
-        listCard = findViewById(R.id.listCard);
-        calendarCard = findViewById(R.id.calendarCard);
-        timelineCard = findViewById(R.id.timelineCard);
-        notesCard = findViewById(R.id.notesCard);
-        settingsCard = findViewById(R.id.settingsCard);
-    }
-
-    private void registerListeners() {
-        bucketCard.setOnClickListener(this);
-        listCard.setOnClickListener(this);
-        calendarCard.setOnClickListener(this);
-        timelineCard.setOnClickListener(this);
-        notesCard.setOnClickListener(this);
-        settingsCard.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
+    public void onClick(View view){
         Intent i;
-
-        switch (view.getId()) {
-            case R.id.bucketCard:
-            case R.id.listCard:
-            case R.id.timelineCard:
-            case R.id.notesCard:
-                // handle these cases if needed
-                break;
-
-            case R.id.calendarCard:
-                i = new Intent(this, TableCalendar.class);
-                i.putExtra(INTENT_KEY, TABLE_CALENDAR_PAGE);
-                startActivity(i);
-                break;
-
-            case R.id.settingsCard:
-                i = new Intent(this, SettingsPage.class);
-                i.putExtra(INTENT_KEY, SETTINGS_PAGE);
-                startActivity(i);
-                break;
-
-            default:
-                break;
+        switch (view.getId()){
+            case R.id.bucketCard: i = new Intent(this, BucketList.class);finish();startActivity(i);break;
+            case R.id.listCard:;
+            case R.id.calendarCard: i = new Intent(this, TableCalendar.class);finish();startActivity(i);break;
+            case R.id.timelineCard: i = new Intent(this, TimeLinePage.class);finish();startActivity(i);break;
+            case R.id.notesCard: i = new Intent(this, NotesPage.class);finish();startActivity(i);break;
+            case R.id.settingsCard: i = new Intent(this, SettingsPage.class);finish();startActivity(i);break;
         }
     }
 
-
-    public void useSharedPreferences() {
-        Log.d("isWorking", "sharedPref works");
-        sharedPref = new SharedPref(getApplicationContext());
-        if (sharedPref.loadNightModeState()) {
+    public void useSharedPreferences(){
+        sharedPref = new SharedPref(this);
+        if (sharedPref.loadNightModeState()==true){
             setTheme(R.style.Theme_CalendarOYDark);
-        } else {
+        }
+        else{
             setTheme(R.style.Theme_CalendarOY);
         }
     }

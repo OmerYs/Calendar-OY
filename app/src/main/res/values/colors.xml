@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--light-->
-    <color name="primary">#FFFAFAFA</color>
-    <color name="primary_variant">#FFE4E5F1</color>
-    <color name="secondary">#FFD2D3DB</color>
-    <color name="background">#FF9394A5</color>
-    <color name="surface">#FF484B6A</color>
+    <!-- Light mode colors -->
+    <color name="primary">#FF6200EE</color>
+    <color name="primary_variant">#FF3700B3</color>
+    <color name="secondary">#FF03DAC6</color>
+    <color name="background">#FFF6F6F6</color>
+    <color name="surface">#FFFFFFFF</color>
 
-    <!--dark-->
-    <color name="primary_dark">#FF121212</color>
+    <!-- Dark mode colors -->
+    <color name="primary_dark">#FFBB86FC</color>
     <color name="primary_variant_dark">#FF3700B3</color>
-    <color name="secondary_dark">#03DAC6</color>
-    <color name="background_dark">#FFBB86FC</color>
-    <color name="surface_dark">#FF121212</color>
+    <color name="secondary_dark">#FF03DAC6</color>
+    <color name="background_dark">#FF121212</color>
+    <color name="surface_dark">#FF1E1E1E</color>
 
-    <!--misc-->
+    <!-- Misc colors -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-
 </resources>

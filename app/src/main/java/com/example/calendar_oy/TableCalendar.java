@@ -39,9 +39,6 @@ public class TableCalendar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_calendar);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Calendar");
-
         gridView = findViewById(R.id.gridView);
         textView = findViewById(R.id.currentDate);
         textView.setText(dateFormat.format(calendar.getTime()));
@@ -62,14 +59,14 @@ public class TableCalendar extends AppCompatActivity {
             }
         });
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(TableCalendar.this, EventsActivity.class);
-                intent.putExtra("date", eventDateFormat.format(dates.get(i)));
-                startActivity(intent);
-            }
-        });
+//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                Intent intent = new Intent(TableCalendar.this, EventsActivity.class);
+//                intent.putExtra("date", eventDateFormat.format(dates.get(i)));
+//                startActivity(intent);
+//            }
+//        });
 
         SetUpCalendar();
     }
