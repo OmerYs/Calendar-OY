@@ -1,6 +1,8 @@
 package com.example.calendar_oy;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -58,5 +60,12 @@ public class NotesPage extends AppCompatActivity {
             noteEditText.getText().clear();
             selectedPosition = -1;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(i);
+        finish();
     }
 }

@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private CardView BucketCard, ListCard, CalendarCard, TimelineCard, NotesCard, SettingCard;
+    private CardView BucketCard, CalendarCard, TimelineCard, NotesCard, SettingCard;
     public SharedPref sharedPref;
 
     @Override
@@ -20,8 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         BucketCard = (CardView) findViewById(R.id.bucketCard);
         BucketCard.setOnClickListener((View.OnClickListener)this);
-        ListCard = (CardView) findViewById(R.id.listCard);
-        ListCard.setOnClickListener((View.OnClickListener)this);
         CalendarCard = (CardView) findViewById(R.id.calendarCard);
         CalendarCard.setOnClickListener((View.OnClickListener)this);
         TimelineCard = (CardView) findViewById(R.id.timelineCard);
@@ -37,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i;
         switch (view.getId()){
             case R.id.bucketCard: i = new Intent(this, BucketList.class);finish();startActivity(i);break;
-            case R.id.listCard:;
             case R.id.calendarCard: i = new Intent(this, TableCalendar.class);finish();startActivity(i);break;
             case R.id.timelineCard: i = new Intent(this, TimeLinePage.class);finish();startActivity(i);break;
             case R.id.notesCard: i = new Intent(this, NotesPage.class);finish();startActivity(i);break;
