@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/circle.xml" value="0.1975" />
+        <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/dark_mode_pattern.xml" value="0.1975" />
+        <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/light_mode_pattern.xml" value="0.1975" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/line.xml" value="0.1975" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/today_background.xml" value="0.1975" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/activity_bucket_list.xml" value="0.36666666666666664" />

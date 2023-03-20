@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Light mode colors -->
-    <color name="primary">#FF6200EE</color>
-    <color name="primary_variant">#FF3700B3</color>
-    <color name="secondary">#FF03DAC6</color>
-    <color name="background">#FFF6F6F6</color>
-    <color name="surface">#FFFFFFFF</color>
+    <color name="primary">#4B8BFC</color>
+    <color name="primary_variant">#3367D6</color>
+    <color name="secondary">#FFA726</color>
+    <color name="background">#FDFDFD</color>
+    <color name="surface">#FFFFFF</color>
 
     <!-- Dark mode colors -->
-    <color name="primary_dark">#FFBB86FC</color>
-    <color name="primary_variant_dark">#FF3700B3</color>
-    <color name="secondary_dark">#FF03DAC6</color>
-    <color name="background_dark">#FF121212</color>
-    <color name="surface_dark">#FF1E1E1E</color>
+    <color name="primary_dark">#6A7C97</color>
+    <color name="primary_variant_dark">#4F5F78</color>
+    <color name="secondary_dark">#8A7A5E</color>
+    <color name="background_dark">#1B1B1B</color>
+    <color name="surface_dark">#2C2C2C</color>
 
     <!-- Misc colors -->
     <color name="black">#FF000000</color>

@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="@color/white"
         android:orientation="vertical"
         android:weightSum="10"
         app:layout_constraintBaseline_toBaselineOf="parent">
@@ -30,7 +30,8 @@
                 android:layout_marginTop="60dp"
                 android:gravity="center"
                 android:text="Main Menu"
-                android:textSize="35sp">
+                android:textSize="35sp"
+                android:textColor="?attr/colorOnPrimary">
 
             </TextView>
         </RelativeLayout>
@@ -54,7 +55,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="@color/cardview_dark_background"
+                app:cardBackgroundColor="?attr/colorSecondary"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="8dp">
 
@@ -66,13 +67,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/bucketText"
+                        android:id="@+id/bucketCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="bucket"
                         android:textAlignment="center"
-                        android:textSize="30sp">
+                        android:textSize="30sp"
+                        android:textColor="?attr/colorOnSecondary">
 
                     </TextView>
 
@@ -88,8 +90,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="?attr/colorSecondary"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
@@ -100,13 +102,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/calendarText"
+                        android:id="@+id/calendarCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="calendar"
                         android:textAlignment="center"
-                        android:textSize="30sp">
+                        android:textSize="30sp"
+                        android:textColor="?attr/colorOnSecondary">
 
                     </TextView>
 
@@ -122,8 +125,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="?attr/colorSecondary"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
@@ -134,13 +137,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/timelineText"
+                        android:id="@+id/timelineCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="timeline"
                         android:textAlignment="center"
-                        android:textSize="30dp">
+                        android:textSize="30sp"
+                        android:textColor="?attr/colorOnSecondary">
 
                     </TextView>
 
@@ -156,8 +160,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="?attr/colorSecondary"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
@@ -168,13 +172,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/notesText"
+                        android:id="@+id/notesCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="notes"
                         android:textAlignment="center"
-                        android:textSize="30sp">
+                        android:textSize="30sp"
+                        android:textColor="?attr/colorOnSecondary">
 
                     </TextView>
 
@@ -190,8 +195,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="#ffffff"
-                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="?attr/colorSecondary"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="8dp">
 
                 <LinearLayout
@@ -202,13 +207,14 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/settingsText"
+                        android:id="@+id/settingsCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:text="settings"
                         android:textAlignment="center"
-                        android:textSize="30sp">
+                        android:textSize="30sp"
+                        android:textColor="?attr/colorOnSecondary">
 
                     </TextView>
 
