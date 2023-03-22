@@ -11,7 +11,13 @@
         android:theme="@style/Theme.CalendarOY" >
         <activity
             android:name=".LoginActivity"
-            android:exported="false" >
+            android:exported="true" >
+            <intent-filter>
+                <action
+                    android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -19,15 +25,6 @@
         <activity
             android:name=".SignUpActivity"
             android:exported="false" >
-<!--            <intent-filter>-->
-<!--                <action-->
-<!--                    android:name="android.intent.action.MAIN"/>-->
-
-<!--                <category android:name="android.intent.category.LAUNCHER"/>-->
-<!--            </intent-filter>-->
-<!--            <meta-data-->
-<!--                android:name="android.app.lib_name"-->
-<!--                android:value="" />-->
         </activity>
         <activity
             android:name=".TimeLinePage"
@@ -41,9 +38,6 @@
         <activity
             android:name=".BucketList"
             android:exported="false" >
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
         <activity
             android:name=".TableCalendar"
@@ -51,16 +45,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="uiMode"
-            android:exported="true" >
-            <intent-filter>
-                <action
-                    android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
+            android:exported="false" >
         </activity>
     </application>
 
