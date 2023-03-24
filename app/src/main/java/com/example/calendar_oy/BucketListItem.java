@@ -1,30 +1,30 @@
 package com.example.calendar_oy;
 
 public class BucketListItem {
-    private String name;
-    private String date;
-    private String description;
+    private String itemName;
+    private boolean checked;
 
     public BucketListItem() {
-
     }
 
-    public BucketListItem(String name, String date, String description) {
-        this.name = name;
-        this.date = date;
-        this.description = description;
+    public BucketListItem(String itemName, boolean checked) {
+        this.itemName = itemName;
+        this.checked = checked;
     }
 
-    public String getName() {
-        return name;
+    public String getItemName() {
+        return itemName;
     }
 
-    public String getDate() {
-        return date;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
-    public String getDescription() {
-        return description;
+    public boolean isChecked() {
+        return checked;
+    }
+
+    public void setChecked(boolean checked) {
+        this.checked = checked;
     }
 }
-
