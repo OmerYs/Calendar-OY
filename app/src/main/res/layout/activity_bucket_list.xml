@@ -13,12 +13,38 @@
         android:layout_height="wrap_content"
         android:hint="Enter an item" />
 
+    <Spinner
+        android:id="@+id/category_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    />
+
     <Button
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Item"
         android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:id="@+id/no_categories_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please add a category before adding items."
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/add_button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    <Button
+        android:id="@+id/manage_categories_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Manage categories"
+        android:layout_gravity="center_horizontal"/>
+
 
     <ListView
         android:id="@+id/bucket_list_view"
