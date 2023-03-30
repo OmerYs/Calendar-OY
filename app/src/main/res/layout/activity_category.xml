@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BucketList">
+    tools:context=".CategoryActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/category_recycler_view"
+        android:id="@+id/item_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/add_category_button" />
+        android:layout_above="@+id/add_item_button" />
 
     <Button
-        android:id="@+id/add_category_button"
+        android:id="@+id/add_item_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Add Category" />
+        android:text="Add Item" />
 
 </RelativeLayout>

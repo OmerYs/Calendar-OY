@@ -6,14 +6,10 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/item_text"
+        android:id="@+id/category_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:textSize="18sp" />
 
-    <CheckBox
-        android:id="@+id/item_checkbox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 </LinearLayout>
