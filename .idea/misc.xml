@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/circle.xml" value="0.1975" />
+        <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/custom_edittext.xml" value="0.2225" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/dark_mode_pattern.xml" value="0.1975" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/light_mode_pattern.xml" value="0.1975" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/drawable/line.xml" value="0.1975" />
@@ -24,6 +25,7 @@
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/dialog_edit_category.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/dialog_edit_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/item_edit_dialog.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/list_item_with_checkbox.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/single_cell_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/test/AndroidStudioProjects/Calendar-OY/app/src/main/res/layout/timeline_list_item.xml" value="0.36666666666666664" />

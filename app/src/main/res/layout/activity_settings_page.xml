@@ -73,8 +73,8 @@
             <Switch
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="notifications">
-
+                android:text="notifications"
+                android:id="@+id/notifications_switch">
             </Switch>
 
         </androidx.cardview.widget.CardView>

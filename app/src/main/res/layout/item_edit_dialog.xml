@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/item_edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Item name" />
+
+    <Button
+        android:id="@+id/item_edit_due_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change due date" />
+
+    <Button
+        android:id="@+id/item_edit_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete item"
+        android:textColor="@android:color/holo_red_dark" />
+
+    <Button
+        android:id="@+id/item_edit_save"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save changes" />
+
+</LinearLayout>

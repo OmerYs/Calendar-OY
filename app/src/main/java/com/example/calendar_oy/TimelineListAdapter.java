@@ -6,17 +6,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import java.util.HashMap;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class TimelineListAdapter extends BaseAdapter {
 
     private Context context;
-    private List<HashMap<String, String>> list;
+    private List<Item> list;
 
-    public TimelineListAdapter(Context context, List<HashMap<String, String>> list) {
+    public TimelineListAdapter(Context context, List<Item> list) {
         this.context = context;
         this.list = list;
+        sortByDueDate();
     }
 
     @Override
@@ -43,17 +50,25 @@ public class TimelineListAdapter extends BaseAdapter {
 
         TextView titleTextView = convertView.findViewById(R.id.title_text_view);
         TextView dateTextView = convertView.findViewById(R.id.date_text_view);
-        TextView actionTextView = convertView.findViewById(R.id.action_text_view);
 
-        HashMap<String, String> item = list.get(position);
-        String title = item.get("title");
-        String date = item.get("date");
-        String action = item.get("action");
+        Item item = list.get(position);
+        String title = item.getDescription();
+        long dateMillis = item.getDueDate();
+        DateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
+        String date = dateFormat.format(new Date(dateMillis));
 
         titleTextView.setText(title);
         dateTextView.setText(date);
-        actionTextView.setText(action);
 
         return convertView;
+    }
+
+    private void sortByDueDate() {
+        Collections.sort(list, new Comparator<Item>() {
+            @Override
+            public int compare(Item item1, Item item2) {
+                return item1.getDueDate().compareTo(item2.getDueDate());
+            }
+        });
     }
 }

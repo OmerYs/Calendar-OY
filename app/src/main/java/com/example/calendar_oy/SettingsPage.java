@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
+import android.widget.Switch;
 
 public class SettingsPage extends AppCompatActivity {
     private LinearLayout lightModeLayout;
     private LinearLayout darkModeLayout;
     public SharedPref sharedPref;
+    private Switch notificationsSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,15 @@ public class SettingsPage extends AppCompatActivity {
             public void onClick(View v) {
                 sharedPref.setNightModeState(true);
                 restartApp();
+            }
+        });
+
+        notificationsSwitch = findViewById(R.id.notifications_switch);
+        notificationsSwitch.setChecked(sharedPref.loadNotificationsState());
+        notificationsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                sharedPref.setNotificationsState(isChecked);
             }
         });
     }
