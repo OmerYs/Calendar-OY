@@ -59,14 +59,14 @@ public class TableCalendar extends AppCompatActivity {
             }
         });
 
-//        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//                Intent intent = new Intent(TableCalendar.this, EventsActivity.class);
-//                intent.putExtra("date", eventDateFormat.format(dates.get(i)));
-//                startActivity(intent);
-//            }
-//        });
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(TableCalendar.this, EventsActivity.class);
+                intent.putExtra("date", eventDateFormat.format(dates.get(i)));
+                startActivity(intent);
+            }
+        });
 
         SetUpCalendar();
     }

@@ -3,28 +3,41 @@ package com.example.calendar_oy;
 import java.util.Date;
 
 public class Events {
-    private String eventName;
-    private Date date;
+    private String title;
+    private long date;
+    private String eventKey;
 
-    public Events(String eventName, Date date) {
-        this.eventName = eventName;
-        this.date = date;
+    public Events() {
     }
 
-    public String getEventName() {
-        return eventName;
+    public Events(String title, Date date) {
+        this.title = title;
+        this.date = date.getTime();
     }
 
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Date getDate() {
-        return date;
+        return new Date(date);
     }
 
     public void setDate(Date date) {
-        this.date = date;
+        this.date = date.getTime();
+    }
+
+    public String getEventKey() { return eventKey; }
+
+    public void setEventKey(String eventKey) { this.eventKey = eventKey; }
+
+    @Override
+    public String toString() {
+        return title;
     }
 }
 

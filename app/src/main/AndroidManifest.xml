@@ -9,6 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CalendarOY">
+        <activity
+            android:name=".EventsActivity"
+            android:exported="false" />
 
         <meta-data
             android:name="firebase_database_url"
@@ -32,7 +35,7 @@
         </activity>
         <activity
             android:name=".SignUpActivity"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".TimeLinePage"
             android:exported="false" />
@@ -44,21 +47,23 @@
             android:exported="false" />
         <activity
             android:name=".BucketList"
-            android:exported="false"></activity>
+            android:exported="false" />
         <activity
             android:name=".TableCalendar"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:configChanges="uiMode"
-            android:exported="false"></activity>
+            android:exported="false" />
 
-        <receiver android:name=".DueItemsNotificationReceiver" android:enabled="true" android:exported="true">
+        <receiver
+            android:name=".DueItemsNotificationReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.example.calendar_oy.ACTION_DUE_ITEM_NOTIFICATION" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>
