@@ -8,17 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CustomCalendarAdapter extends BaseAdapter {
     private List<Date> dates;
@@ -31,7 +26,6 @@ public class CustomCalendarAdapter extends BaseAdapter {
         this.calendar = calendar;
         this.events = events;
         inflater = LayoutInflater.from(context);
-        fetchEvents();
     }
 
     @Override
@@ -66,49 +60,57 @@ public class CustomCalendarAdapter extends BaseAdapter {
         TextView cellNumber = view.findViewById(R.id.calendar_day);
         cellNumber.setText(String.valueOf(dayValue));
 
-        boolean isEventOnDate = false;
-        for (Events event : events) {
-            Calendar eventCalendar = Calendar.getInstance();
-            eventCalendar.setTime(event.getDate());
-            if (dayValue == eventCalendar.get(Calendar.DAY_OF_MONTH) &&
-                    displayMonth == eventCalendar.get(Calendar.MONTH) &&
-                    displayYear == eventCalendar.get(Calendar.YEAR)) {
-                isEventOnDate = true;
-                break;
-            }
-        }
+        boolean isEventOnDate = isEventOnDate(dayValue, displayMonth, displayYear, events);
 
         Calendar currentDate = Calendar.getInstance();
         if (displayMonth == currentDate.get(Calendar.MONTH) && displayYear == currentDate.get(Calendar.YEAR) && dayValue == currentDate.get(Calendar.DAY_OF_MONTH)) {
             cellNumber.setTextColor(Color.parseColor("#FF4081"));
+            view.setBackgroundColor(Color.parseColor("#E0F2F1")); // Change the background color of the current date cell
         } else if (isEventOnDate) {
             cellNumber.setTextColor(Color.parseColor("#FF5722"));
+            view.setBackgroundColor(Color.parseColor("#FFF3E0")); // Change the background color of the event date cell
         } else {
             cellNumber.setTextColor(Color.BLACK);
+            view.setBackgroundColor(Color.TRANSPARENT); // Reset the background color for other date cells
         }
 
         return view;
     }
 
+    private boolean isEventOnDate(int dayValue, int displayMonth, int displayYear, List<Events> events) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        // Create a new Calendar instance for the current date in the loop
+        Calendar dateCalendar = Calendar.getInstance();
+        dateCalendar.set(Calendar.YEAR, displayYear);
+        dateCalendar.set(Calendar.MONTH, displayMonth);
+        dateCalendar.set(Calendar.DAY_OF_MONTH, dayValue);
 
-    private void fetchEvents() {
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("events");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                events.clear();
-                for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
-                    Events event = eventSnapshot.getValue(Events.class);
-                    if (event != null) {
-                        events.add(event);
-                    }
+        for (Events event : events) {
+            if (event.getDate() == null) {
+                continue;
+            }
+
+            // Convert event date to a Calendar object
+            Calendar eventCalendar = Calendar.getInstance();
+            try {
+                Date eventDate = dateFormat.parse(event.getDate());
+                eventCalendar.setTime(eventDate);
+            } catch (ParseException e) {
+                e.printStackTrace();
+                continue;
+            }
+
+            // Check if the event date matches the current date in the loop
+            if (eventCalendar.get(Calendar.DAY_OF_MONTH) == dayValue &&
+                    eventCalendar.get(Calendar.MONTH) == displayMonth &&
+                    eventCalendar.get(Calendar.YEAR) == displayYear) {
+                String eventDateString = dateFormat.format(eventCalendar.getTime());
+                String monthDateString = dateFormat.format(dateCalendar.getTime());
+                if (eventDateString.equals(monthDateString)) {
+                    return true;
                 }
             }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        }
+        return false;
     }
 }

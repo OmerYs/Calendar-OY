@@ -1,18 +1,16 @@
 package com.example.calendar_oy;
 
-import java.util.Date;
-
 public class Events {
     private String title;
-    private long date;
+    private String date;
     private String eventKey;
 
     public Events() {
     }
 
-    public Events(String title, Date date) {
+    public Events(String title, String date) {
         this.title = title;
-        this.date = date.getTime();
+        this.date = date;
     }
 
     public String getTitle() {
@@ -23,12 +21,12 @@ public class Events {
         this.title = title;
     }
 
-    public Date getDate() {
-        return new Date(date);
+    public String getDate() {
+        return date;
     }
 
-    public void setDate(Date date) {
-        this.date = date.getTime();
+    public void setDate(String date) {
+        this.date = date;
     }
 
     public String getEventKey() { return eventKey; }
@@ -37,7 +35,7 @@ public class Events {
 
     @Override
     public String toString() {
-        return title;
+        return "Title: " + title + ", Date: " + date;
     }
 }
 

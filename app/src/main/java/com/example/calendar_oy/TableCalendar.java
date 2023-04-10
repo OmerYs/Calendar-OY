@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -33,6 +38,8 @@ public class TableCalendar extends AppCompatActivity {
 
     private ArrayList<Date> dates = new ArrayList<>();
     private ArrayList<Events> eventsList = new ArrayList<>();
+    private DatabaseReference databaseReference;
+    private ValueEventListener eventListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +76,7 @@ public class TableCalendar extends AppCompatActivity {
         });
 
         SetUpCalendar();
+        fetchEventsAndUpdateCalendar();
     }
 
     private void SetUpCalendar() {
@@ -91,6 +99,39 @@ public class TableCalendar extends AppCompatActivity {
         gridView.setAdapter(customCalendarAdapter);
     }
 
+    private void fetchEventsAndUpdateCalendar() {
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        databaseReference = FirebaseDatabase.getInstance("https://calendarproject-dae43-default-rtdb.europe-west1.firebasedatabase.app/").getReference("users").child(userId).child("events");
+        eventListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                eventsList.clear();
+                for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
+                    Events event = eventSnapshot.getValue(Events.class);
+                    if (event != null) {
+                        eventsList.add(event);
+                        Log.d("Event Added", "Event: " + event.toString()); // Debug log statement
+                    }
+                }
+                SetUpCalendar();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        };
+        databaseReference.addValueEventListener(eventListener);
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (databaseReference != null && eventListener != null) {
+            databaseReference.removeEventListener(eventListener);
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -102,9 +143,10 @@ public class TableCalendar extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(getApplicationContext(),MainActivity.class);
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
         finish();
     }
-
 }
+
+

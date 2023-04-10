@@ -5,7 +5,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,8 +29,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class EventsActivity extends AppCompatActivity {
 
@@ -38,7 +43,6 @@ public class EventsActivity extends AppCompatActivity {
     private ListView eventsListView;
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
-
 
     private ArrayList<Events> eventsList = new ArrayList<>();
     private ArrayAdapter<Events> eventsArrayAdapter;
@@ -70,7 +74,7 @@ public class EventsActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
 
-        databaseReference = FirebaseDatabase.getInstance("https://calendarproject-dae43-default-rtdb.europe-west1.firebasedatabase.app/").getReference("users").child(currentUser.getUid()).child("events").child(formattedDate);
+        databaseReference = FirebaseDatabase.getInstance("https://calendarproject-dae43-default-rtdb.europe-west1.firebasedatabase.app/").getReference("users").child(currentUser.getUid()).child("events");
 
         eventsArrayAdapter = new ArrayAdapter<Events>(this, android.R.layout.simple_list_item_1, eventsList) {
             @NonNull
@@ -95,21 +99,24 @@ public class EventsActivity extends AppCompatActivity {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Log.d("Data Change", "Data changed");
                 eventsList.clear();
                 for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
                     Events event = eventSnapshot.getValue(Events.class);
-                    if (event != null) {
+                    if (event != null && event.getTitle() != null && event.getDate().equals(date)) {
                         event.setEventKey(eventSnapshot.getKey());
                         eventsList.add(event);
+                        Log.d("Event Added", "Event: " + event);
                     }
                 }
                 eventsArrayAdapter.notifyDataSetChanged();
+                Log.d("Events List Size", "Size: " + eventsList.size());
             }
 
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle errors here
+                Log.e("Database Error", "Error: ", databaseError.toException());
             }
         });
 
@@ -118,13 +125,11 @@ public class EventsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String eventTitle = eventName.getText().toString().trim();
                 if (!eventTitle.isEmpty()) {
-                    try {
-                        Events event = new Events(eventTitle, dateFormat.parse(date));
-                        databaseReference.push().setValue(event);
-                        eventName.setText("");
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
+                    Events event = new Events(eventTitle, date);
+                    Log.d("Event Created", "Event: " + eventTitle + ", Date: " + date);
+                    databaseReference.push().setValue(event);
+                    Log.d("Event Stored", "Event: " + event.getTitle() + ", Date: " + event.getDate());
+                    eventName.setText("");
                 }
             }
         });
@@ -162,6 +167,7 @@ public class EventsActivity extends AppCompatActivity {
                         String updatedEventName = editEventName.getText().toString().trim();
                         if (!updatedEventName.isEmpty()) {
                             Events updatedEvent = new Events(updatedEventName, selectedEvent.getDate());
+                            Log.d("Event Updated", "Event: " + updatedEventName + ", Date: " + selectedEvent.getDate());
                             updatedEvent.setEventKey(eventKey);
                             databaseReference.child(eventKey).setValue(updatedEvent);
                             alertDialog.dismiss();
@@ -175,3 +181,5 @@ public class EventsActivity extends AppCompatActivity {
 
     }
 }
+
+
