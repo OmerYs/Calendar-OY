@@ -22,6 +22,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -37,13 +38,17 @@ public class CategoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ItemAdapter adapter;
     private ArrayList<Item> items;
-    private Button addItemButton;
+    private FloatingActionButton addItemButton;
     private DatabaseReference mDatabase;
     private String categoryId;
     private DueItemsNotificationReceiver dueItemsNotificationReceiver;
+    private SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 

@@ -5,20 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TableCalendar"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="?attr/backgroundColor">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:background="@android:color/holo_orange_dark">
+        android:background="?attr/colorPrimary">
 
         <ImageButton
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/previousButton"
-            android:background="@color/black"
+            android:background="?attr/colorSecondary"
+            android:src="@drawable/ic_baseline_arrow_back_24"
             android:layout_margin="10dp" />
         <TextView
             android:layout_width="wrap_content"
@@ -27,7 +30,7 @@
             android:gravity="center"
             android:layout_marginTop="4dp"
             android:text="CurrentDate"
-            android:textColor="@android:color/white"
+            android:textColor="?attr/colorOnPrimary"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_weight="3"/>
@@ -36,7 +39,8 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:id="@+id/nextButton"
-            android:background="@color/black"
+            android:background="?attr/colorSecondary"
+            android:src="@drawable/ic_baseline_arrow_forward_24"
             android:layout_margin="10dp" />
     </LinearLayout>
 
@@ -46,93 +50,74 @@
         android:orientation="horizontal"
         android:paddingBottom="4dp"
         android:paddingTop="4dp"
-        android:background="@color/primary_dark">
+        android:background="?attr/colorPrimaryVariant">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Sunday"
-            android:background="@android:color/holo_blue_dark"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="Sun"
+            android:textColor="?attr/colorOnPrimary" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Monday"
-            android:background="@android:color/holo_orange_light"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="Mon"
+            android:textColor="?attr/colorOnPrimary" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Tuesday"
-            android:background="@android:color/holo_green_light"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="Tue"
+            android:textColor="?attr/colorOnPrimary" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Wednesday"
-            android:background="@android:color/holo_red_light"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="Wed"
+            android:textColor="?attr/colorOnPrimary" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Thursday"
-            android:background="@android:color/holo_purple"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="Thu"
+            android:textColor="?attr/colorOnPrimary" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Friday"
-            android:background="@android:color/white"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
-
+            android:gravity="center"
+            android:text="Fri"
+            android:textColor="?attr/colorOnPrimary" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Saturday"
-            android:background="@android:color/darker_gray"
-            android:layout_marginTop="4dp"
             android:layout_weight="1"
-            android:textStyle="bold"
-            />
+            android:gravity="center"
+            android:text="Sat"
+            android:textColor="?attr/colorOnPrimary" />
     </LinearLayout>
-    
+
     <GridView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/gridView"
-        android:numColumns="7">
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:numColumns="7"
+        android:verticalSpacing="2dp"
+        android:horizontalSpacing="2dp"
+        android:stretchMode="columnWidth">
 
     </GridView>
-
 
 </LinearLayout>

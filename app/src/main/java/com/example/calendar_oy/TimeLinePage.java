@@ -30,8 +30,14 @@ public class TimeLinePage extends AppCompatActivity {
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
     private String userId;
 
+    private SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time_line_page);
 

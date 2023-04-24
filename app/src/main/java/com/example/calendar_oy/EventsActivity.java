@@ -50,8 +50,14 @@ public class EventsActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private String formattedDate;
 
+    private SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
 

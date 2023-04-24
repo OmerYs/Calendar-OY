@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,6 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:background="?attr/colorSurface"
     tools:context=".EventsActivity">
 
     <TextView
@@ -14,24 +14,43 @@
         android:layout_height="wrap_content"
         android:text="Date"
         android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textColor="?attr/colorOnSurface"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
 
-    <EditText
-        android:id="@+id/eventName"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eventNameLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Event Name"
-        android:inputType="text" />
+        app:boxBackgroundColor="?attr/colorSurface"
+        app:boxStrokeColor="?attr/colorPrimary"
+        app:hintTextColor="?attr/colorOnSurface"
+        app:boxStrokeWidth="1dp">
 
-    <Button
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eventName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="?attr/colorOnSurface" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/addEventButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Event" />
+        android:text="Add Event"
+        android:layout_marginTop="8dp"
+        app:cornerRadius="24dp"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        app:strokeColor="?attr/colorPrimary"
+        android:textColor="?attr/colorOnSurface"/>
 
     <ListView
         android:id="@+id/eventsListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp" />
 
 </LinearLayout>

@@ -23,8 +23,13 @@ public class SignUpActivity extends AppCompatActivity {
     private Button signupButton;
     private TextView loginRedirectText;
 
+    private SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 

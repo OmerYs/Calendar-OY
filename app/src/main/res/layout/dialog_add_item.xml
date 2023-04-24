@@ -10,12 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Item description"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="?attr/colorOnSurface"
+        android:backgroundTint="?attr/colorSecondary"/>
 
     <DatePicker
         android:id="@+id/item_due_date_picker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:calendarViewShown="false" />
+        android:calendarViewShown="false"
+        android:headerBackground="?attr/colorPrimary" />
 
 </LinearLayout>

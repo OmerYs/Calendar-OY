@@ -6,6 +6,9 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryVariant">@color/primary_variant</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/background</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorOnSurface">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary</item>
         <item name="colorOnSecondary">@color/black</item>
@@ -13,6 +16,8 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@color/navigationBarColor</item>
         <!-- Customize your theme here. -->
     </style>
 
@@ -22,6 +27,9 @@
         <item name="colorPrimary">@color/primary_dark</item>
         <item name="colorPrimaryVariant">@color/primary_variant_dark</item>
         <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/background_dark</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/secondary_dark</item>
         <item name="colorOnSecondary">@color/black</item>
@@ -29,6 +37,64 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@color/navigationBarColor_dark</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Green Theme -->
+    <style name="Theme.CalendarOYGreen" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorPrimaryVariant">@color/primary_variant_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/background_green</item>
+        <item name="colorSurface">@color/surface_green</item>
+        <item name="colorOnSurface">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@color/navigationBarColor_green</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <!-- Purple Theme -->
+    <style name="Theme.CalendarOYPurple" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_purple</item>
+        <item name="colorPrimaryVariant">@color/primary_variant_purple</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/background_purple</item>
+        <item name="colorSurface">@color/surface_purple</item>
+        <item name="colorOnSurface">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondary_purple</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Navigation bar color. -->
+        <item name="android:navigationBarColor">@color/navigationBarColor_purple</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="CardViewStyle">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_rowWeight">1</item>
+        <item name="android:layout_columnWeight">1</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="cardBackgroundColor">?attr/colorSecondary</item>
+        <item name="cardCornerRadius">20dp</item>
+        <item name="cardElevation">8dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?attr/selectableItemBackground</item>
     </style>
 </resources>

@@ -31,11 +31,17 @@ public class BucketList extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference mDatabase;
     private String userId;
+    private SharedPref sharedPref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bucket_list);
+
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();

@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorPrimary"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="?attr/colorPrimaryVariant"
         android:orientation="vertical"
         android:weightSum="10"
         app:layout_constraintBaseline_toBaselineOf="parent">
@@ -24,11 +25,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginTop="60dp"
-                android:gravity="center"
+                android:layout_centerInParent="true"
                 android:text="Main Menu"
                 android:textSize="35sp"
                 android:textColor="?attr/colorOnPrimary">
@@ -46,180 +43,115 @@
             android:padding="15dp"
             android:rowCount="3">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/bucketCard"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="?attr/colorSecondary"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardViewStyle"
+                android:id="@+id/bucketCard">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="15dp"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/bucketCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="bucket"
+                        android:text="Bucket"
                         android:textAlignment="center"
                         android:textSize="30sp"
-                        android:textColor="?attr/colorOnSecondary">
-
-                    </TextView>
+                        android:textColor="?attr/colorOnSecondary"/>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/calendarCard"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="?attr/colorSecondary"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardViewStyle"
+                android:id="@+id/calendarCard">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="15dp"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/calendarCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="calendar"
+                        android:text="Calendar"
                         android:textAlignment="center"
                         android:textSize="30sp"
-                        android:textColor="?attr/colorOnSecondary">
-
-                    </TextView>
+                        android:textColor="?attr/colorOnSecondary"/>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/timelineCard"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="?attr/colorSecondary"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardViewStyle"
+                android:id="@+id/timelineCard">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="15dp"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/timelineCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="timeline"
+                        android:text="Timeline"
                         android:textAlignment="center"
                         android:textSize="30sp"
-                        android:textColor="?attr/colorOnSecondary">
-
-                    </TextView>
+                        android:textColor="?attr/colorOnSecondary"/>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/notesCard"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="?attr/colorSecondary"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardViewStyle"
+                android:id="@+id/notesCard">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="15dp"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/notesCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="notes"
+                        android:text="Notes"
                         android:textAlignment="center"
                         android:textSize="30sp"
-                        android:textColor="?attr/colorOnSecondary">
-
-                    </TextView>
+                        android:textColor="?attr/colorOnSecondary"/>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/settingsCard"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginBottom="15dp"
-                app:cardBackgroundColor="?attr/colorSecondary"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="8dp">
+            <com.google.android.material.card.MaterialCardView
+                style="@style/CardViewStyle"
+                android:id="@+id/settingsCard">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal|center_vertical"
-                    android:layout_margin="15dp"
+                    android:layout_gravity="center"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/settingsCardText"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:text="settings"
+                        android:text="Settings"
                         android:textAlignment="center"
                         android:textSize="30sp"
-                        android:textColor="?attr/colorOnSecondary">
-
-                    </TextView>
+                        android:textColor="?attr/colorOnSecondary"/>
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
         </GridLayout>
 

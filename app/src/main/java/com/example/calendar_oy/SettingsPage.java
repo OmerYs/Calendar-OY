@@ -12,27 +12,29 @@ import android.widget.Switch;
 public class SettingsPage extends AppCompatActivity {
     private LinearLayout lightModeLayout;
     private LinearLayout darkModeLayout;
+    private LinearLayout greenModeLayout;
+    private LinearLayout purpleModeLayout;
     public SharedPref sharedPref;
     private Switch notificationsSwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         sharedPref = new SharedPref(this);
-        if (sharedPref.loadNightModeState() == true) {
-            setTheme(R.style.Theme_CalendarOYDark);
-        } else {
-            setTheme(R.style.Theme_CalendarOY);
-        }
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_page);
 
         lightModeLayout = findViewById(R.id.lightModeLayout);
         darkModeLayout = findViewById(R.id.darkModeLayout);
+        greenModeLayout = findViewById(R.id.greenModeLayout);
+        purpleModeLayout = findViewById(R.id.purpleModeLayout);
 
         lightModeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPref.setNightModeState(false);
+                sharedPref.setThemeState("light");
                 restartApp();
             }
         });
@@ -40,10 +42,27 @@ public class SettingsPage extends AppCompatActivity {
         darkModeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sharedPref.setNightModeState(true);
+                sharedPref.setThemeState("dark");
                 restartApp();
             }
         });
+
+        greenModeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPref.setThemeState("green");
+                restartApp();
+            }
+        });
+
+        purpleModeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sharedPref.setThemeState("purple");
+                restartApp();
+            }
+        });
+
 
         notificationsSwitch = findViewById(R.id.notifications_switch);
         notificationsSwitch.setChecked(sharedPref.loadNotificationsState());

@@ -41,8 +41,13 @@ public class TableCalendar extends AppCompatActivity {
     private DatabaseReference databaseReference;
     private ValueEventListener eventListener;
 
+    private SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_table_calendar);
 

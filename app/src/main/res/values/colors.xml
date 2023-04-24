@@ -6,13 +6,31 @@
     <color name="secondary">#FFA726</color>
     <color name="background">#FDFDFD</color>
     <color name="surface">#FFFFFF</color>
+    <color name="navigationBarColor">#3367D6</color>
 
     <!-- Dark mode colors -->
-    <color name="primary_dark">#6A7C97</color>
-    <color name="primary_variant_dark">#4F5F78</color>
-    <color name="secondary_dark">#8A7A5E</color>
+    <color name="primary_dark">#3A3A3A</color>
+    <color name="primary_variant_dark">#2A2A2A</color>
+    <color name="secondary_dark">#1F1F1F</color>
     <color name="background_dark">#1B1B1B</color>
     <color name="surface_dark">#2C2C2C</color>
+    <color name="navigationBarColor_dark">#1B1B1B</color>
+
+    <!-- Green Theme colors -->
+    <color name="primary_green">#264653</color>
+    <color name="primary_variant_green">#1A3538</color>
+    <color name="secondary_green">#2A9D8F</color>
+    <color name="background_green">#1F6A75</color>
+    <color name="surface_green">#1F6A75</color>
+    <color name="navigationBarColor_green">#1A3538</color>
+
+    <!-- Purple Theme colors -->
+    <color name="primary_purple">#6A4C93</color>
+    <color name="primary_variant_purple">#4C3672</color>
+    <color name="secondary_purple">#9D4EDD</color>
+    <color name="background_purple">#4B3359</color>
+    <color name="surface_purple">#4B3359</color>
+    <color name="navigationBarColor_purple">#4C3672</color>
 
     <!-- Misc colors -->
     <color name="black">#FF000000</color>

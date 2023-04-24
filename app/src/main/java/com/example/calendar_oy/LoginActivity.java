@@ -26,8 +26,14 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private TextView signupRedirectText;
 
+    private SharedPref sharedPref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        sharedPref = new SharedPref(this);
+        sharedPref.applyTheme(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
