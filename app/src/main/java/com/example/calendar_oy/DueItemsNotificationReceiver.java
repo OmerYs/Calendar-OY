@@ -19,7 +19,7 @@ public class DueItemsNotificationReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         if (intent.getAction() != null && intent.getAction().equals("com.example.calendar_oy.ACTION_DUE_ITEM_NOTIFICATION")) {
-            String itemDescription = intent.getStringExtra("item_description");
+            String itemDescription = intent.getStringExtra("itemDescription");
             long dueDate = intent.getLongExtra("due_date", System.currentTimeMillis());
             boolean itemCompleted = intent.getBooleanExtra("item_completed", false);
 
