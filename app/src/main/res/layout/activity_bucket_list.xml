@@ -7,11 +7,20 @@
     android:background="?attr/colorPrimary"
     tools:context=".BucketList">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:title="Bucket List"
+        app:titleTextColor="?attr/colorOnPrimary" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/add_category_button" />
+        android:layout_above="@+id/add_category_button"
+        android:layout_below="@+id/toolbar" />
 
     <Button
         android:id="@+id/add_category_button"
