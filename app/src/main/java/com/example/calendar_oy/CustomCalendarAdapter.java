@@ -65,13 +65,13 @@ public class CustomCalendarAdapter extends BaseAdapter {
         Calendar currentDate = Calendar.getInstance();
         if (displayMonth == currentDate.get(Calendar.MONTH) && displayYear == currentDate.get(Calendar.YEAR) && dayValue == currentDate.get(Calendar.DAY_OF_MONTH)) {
             cellNumber.setTextColor(Color.parseColor("#FF4081"));
-            view.setBackgroundColor(Color.parseColor("#E0F2F1")); // Change the background color of the current date cell
+            view.setBackgroundColor(Color.parseColor("#E0F2F1"));
         } else if (isEventOnDate) {
             cellNumber.setTextColor(Color.parseColor("#FF5722"));
-            view.setBackgroundColor(Color.parseColor("#FFF3E0")); // Change the background color of the event date cell
+            view.setBackgroundColor(Color.parseColor("#FFF3E0"));
         } else {
             cellNumber.setTextColor(Color.BLACK);
-            view.setBackgroundColor(Color.TRANSPARENT); // Reset the background color for other date cells
+            view.setBackgroundColor(Color.TRANSPARENT);
         }
 
         return view;
@@ -79,7 +79,6 @@ public class CustomCalendarAdapter extends BaseAdapter {
 
     private boolean isEventOnDate(int dayValue, int displayMonth, int displayYear, List<Events> events) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        // Create a new Calendar instance for the current date in the loop
         Calendar dateCalendar = Calendar.getInstance();
         dateCalendar.set(Calendar.YEAR, displayYear);
         dateCalendar.set(Calendar.MONTH, displayMonth);
@@ -90,7 +89,6 @@ public class CustomCalendarAdapter extends BaseAdapter {
                 continue;
             }
 
-            // Convert event date to a Calendar object
             Calendar eventCalendar = Calendar.getInstance();
             try {
                 Date eventDate = dateFormat.parse(event.getDate());
@@ -100,7 +98,6 @@ public class CustomCalendarAdapter extends BaseAdapter {
                 continue;
             }
 
-            // Check if the event date matches the current date in the loop
             if (eventCalendar.get(Calendar.DAY_OF_MONTH) == dayValue &&
                     eventCalendar.get(Calendar.MONTH) == displayMonth &&
                     eventCalendar.get(Calendar.YEAR) == displayYear) {

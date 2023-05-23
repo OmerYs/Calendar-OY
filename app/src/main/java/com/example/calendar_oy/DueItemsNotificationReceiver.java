@@ -64,7 +64,6 @@ public class DueItemsNotificationReceiver extends BroadcastReceiver {
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
         notificationManager.notify((int) dueDate, builder.build());
 
-        //Toast message for debugging purposes
         Toast.makeText(context, "Notification sent for: " + itemDescription, Toast.LENGTH_SHORT).show();
     }
 }

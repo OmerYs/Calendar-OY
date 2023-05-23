@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private CardView BucketCard, CalendarCard, TimelineCard, NotesCard, SettingCard;
+    private CardView BucketCard, CalendarCard, TimelineCard, SettingCard;
     public SharedPref sharedPref;
 
     @Override
@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         CalendarCard.setOnClickListener(this);
         TimelineCard = findViewById(R.id.timelineCard);
         TimelineCard.setOnClickListener(this);
-        NotesCard = findViewById(R.id.notesCard);
-        NotesCard.setOnClickListener(this);
         SettingCard = findViewById(R.id.settingsCard);
         SettingCard.setOnClickListener(this);
     }
@@ -48,11 +46,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.timelineCard:
                 i = new Intent(this, TimeLinePage.class);
-                finish();
-                startActivity(i);
-                break;
-            case R.id.notesCard:
-                i = new Intent(this, NotesPage.class);
                 finish();
                 startActivity(i);
                 break;

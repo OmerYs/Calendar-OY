@@ -41,7 +41,8 @@
             android:columnCount="2"
             android:columnOrderPreserved="false"
             android:padding="15dp"
-            android:rowCount="3">
+            android:rowCount="2"
+            android:layout_marginBottom="200dp">
 
             <com.google.android.material.card.MaterialCardView
                 style="@style/CardViewStyle"
@@ -102,28 +103,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Timeline"
-                        android:textAlignment="center"
-                        android:textSize="30sp"
-                        android:textColor="?attr/colorOnSecondary"/>
-
-                </LinearLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                style="@style/CardViewStyle"
-                android:id="@+id/notesCard">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/notesCardText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Notes"
                         android:textAlignment="center"
                         android:textSize="30sp"
                         android:textColor="?attr/colorOnSecondary"/>

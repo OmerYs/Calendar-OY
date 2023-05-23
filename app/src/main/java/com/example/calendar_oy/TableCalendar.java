@@ -126,7 +126,7 @@ public class TableCalendar extends AppCompatActivity {
                     Events event = eventSnapshot.getValue(Events.class);
                     if (event != null) {
                         eventsList.add(event);
-                        Log.d("Event Added", "Event: " + event.toString()); // Debug log statement
+                        Log.d("Event Added", "Event: " + event.toString());
                     }
                 }
                 SetUpCalendar();

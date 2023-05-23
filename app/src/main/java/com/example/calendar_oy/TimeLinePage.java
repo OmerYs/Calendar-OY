@@ -49,7 +49,7 @@ public class TimeLinePage extends AppCompatActivity {
         if (user != null) {
             userId = user.getUid();
         } else {
-            // Handle the case when the user is not logged in
+
         }
 
         Toolbar toolbar = findViewById(R.id.toolbar);

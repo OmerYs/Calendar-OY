@@ -40,9 +40,6 @@
             android:name=".TimeLinePage"
             android:exported="false" />
         <activity
-            android:name=".NotesPage"
-            android:exported="false" />
-        <activity
             android:name=".SettingsPage"
             android:exported="false" />
         <activity
