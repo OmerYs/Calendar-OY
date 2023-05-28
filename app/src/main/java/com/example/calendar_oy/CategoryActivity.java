@@ -43,7 +43,7 @@ public class CategoryActivity extends AppCompatActivity {
     private ArrayList<Item> items;
     private FloatingActionButton addItemButton;
     private DatabaseReference mDatabase;
-    private String categoryId;
+    private String categoryId, categoryName;
     private DueItemsNotificationReceiver dueItemsNotificationReceiver;
     private SharedPref sharedPref;
 
@@ -58,6 +58,7 @@ public class CategoryActivity extends AppCompatActivity {
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         categoryId = getIntent().getStringExtra("category_id");
+        categoryName = getIntent().getStringExtra("category_name");
         mDatabase = FirebaseDatabase.getInstance("https://calendarproject-dae43-default-rtdb.europe-west1.firebasedatabase.app/").getReference("users").child(userId).child("categories").child(categoryId).child("items");
 
         recyclerView = findViewById(R.id.item_recycler_view);
@@ -132,6 +133,7 @@ public class CategoryActivity extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
+            actionBar.setTitle(categoryName);
         }
 
         dueItemsNotificationReceiver = new DueItemsNotificationReceiver();
